@@ -26,7 +26,8 @@ class StoreBookRequest extends FormRequest
             "title" => "required|string|max:50|unique:books",
             "description" => "sometimes|max:250",
             "author_id" => "required|exists:authors,id",
-            "categories" => "array"
+            "categories" => "array",
+            "cover_image" => 'required|file|mimes:jpg, png, jpeg, pdf',
         ];
     }
 }

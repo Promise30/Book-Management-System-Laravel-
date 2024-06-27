@@ -74,7 +74,13 @@ class LoginRequest extends FormRequest
             ]),
         ]);
     }
-
+    public function redirectTo(): string
+    {
+        if (auth()->user()->hasRole('admin')) {
+            return route('admin.dashboard');
+        }
+        return route('book.index');
+    }
     /**
      * Get the rate limiting throttle key for the request.
      */
